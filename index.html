@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{background-color: #feffde}
+		.container{background: #91c788;width: 350px;margin: 50px auto;padding: 10px;border:2px solid #52734d;border-radius: 2px;display: flex;justify-content: center;flex-wrap: wrap;    flex-direction: column;
+    text-align: center;}
+		.valueBox{display: flex;justify-content: center;align-items: center;}
+		#value1, #value2{width: 50px;height: 50px;background-color: #fff;border:1px solid #d3d3d3;border-radius: 4px;font-size: 25px;font-weight: bold;justify-content: center;align-items: center;display: flex;}
+		.operator{margin: 0 10px;width: 50px;height: 50px;justify-content: center;align-items: center;display: flex;border-radius: 4px;font-size: 25px;font-weight: bold}
+		.inputvalue{flex-wrap: wrap;margin: 10px 0}
+		.inputvalue input{margin: 10px 0;height: 38px;border:1px solid #d3d3d3;border-radius: 4px;padding: 0 10px;}
+		button{width: 188px;height: 38px;margin: 0 auto;background-color: #ff8882;border:1px solid #ff8882;border-radius: 5px;color:#fff;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Random Generate Value</h2>
+		<div class="valueBox">
+			<div id="value1"></div>
+			<div class="operator"> + </div>
+			<div id="value2"></div>
+		</div>
+		<div class="inputvalue">
+			<input type="text" placeholder="enter your answer" id="t1">
+		</div>
+		<button id='btn'>Check Answer</button>
+	</div>
+
+</body>
+<script type="text/javascript">
+	let r1 = Math.floor(Math.random() * 10);
+	let r2 = Math.floor(Math.random() * 10);
+	document.getElementById('value1').innerHTML = r1 ;
+	document.getElementById('value2').innerHTML = r2 ;
+	let answer = r1 +  r2;
+	let button = document.getElementById('btn');
+	button.addEventListener('click', updateValue);
+	function updateValue(){
+		let input = document.getElementById('t1').value;
+
+		if( answer == input){
+			alert('it is right Answer');
+		}
+		else{
+			alert('try again');
+		}
+		document.getElementById('t1').value ='';
+		r1 = Math.floor(Math.random() * 10);
+		r2 = Math.floor(Math.random() * 10);
+		document.getElementById('value1').innerHTML = r1 ;
+		document.getElementById('value2').innerHTML = r2 ;
+		answer = r1 +  r2;
+	}
+</script>
+</html>
